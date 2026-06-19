@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useContractStore, Clause } from "../store/contractStore";
+import { useContractStore, type Clause } from "../store/contractStore";
 import { api, BASE_URL } from "../services/api";
 import { 
   FileText, 
