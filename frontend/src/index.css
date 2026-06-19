@@ -2,34 +2,25 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%; /* Charcoal deep dark */
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    
-    --card: 222.2 84% 6.5%; /* Glassmorphism card dark */
+    --card: 222.2 84% 6.5%;
     --card-foreground: 210 40% 98%;
-    
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    
-    --primary: 174.7 83.9% 39%; /* Teal #0d9488 */
+    --primary: 174.7 83.9% 39%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    
     --muted: 217.2 32.6% 12%;
     --muted-foreground: 215 20.2% 65.1%;
-    
     --accent: 217.2 32.6% 14%;
     --accent-foreground: 210 40% 98%;
-    
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 174.7 83.9% 39%;
-    
     --radius: 0.5rem;
   }
 }
@@ -41,63 +32,30 @@
   }
 }
 
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #374151;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
 
-/* Elegant glassmorphism background panels */
 .glass-panel {
   background: rgba(17, 24, 39, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-.glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.glass-panel-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .glass-panel-hover:hover {
   background: rgba(17, 24, 39, 0.85);
   border-color: rgba(13, 148, 136, 0.4);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
   transform: translateY(-2px);
 }
+.neon-glow-teal { box-shadow: 0 0 25px -5px rgba(13, 148, 136, 0.15); }
+.neon-glow-red { box-shadow: 0 0 25px -5px rgba(190, 18, 60, 0.15); }
 
-/* Animated neon glows */
-.neon-glow-teal {
-  box-shadow: 0 0 25px -5px rgba(13, 148, 136, 0.15);
-}
+.risk-badge-high { @apply bg-rose-500/10 border border-rose-500/30 text-rose-400 font-semibold px-2 py-0.5 rounded text-xs; }
+.risk-badge-medium { @apply bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold px-2 py-0.5 rounded text-xs; }
+.risk-badge-low { @apply bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold px-2 py-0.5 rounded text-xs; }
 
-.neon-glow-red {
-  box-shadow: 0 0 25px -5px rgba(190, 18, 60, 0.15);
-}
-
-/* Risk tag styling overrides */
-.risk-badge-high {
-  @apply bg-rose-500/10 border border-rose-500/30 text-rose-400 font-semibold px-2 py-0.5 rounded text-xs;
-}
-
-.risk-badge-medium {
-  @apply bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold px-2 py-0.5 rounded text-xs;
-}
-
-.risk-badge-low {
-  @apply bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold px-2 py-0.5 rounded text-xs;
-}
-
-/* Animate background grid mesh */
 .bg-grid-mesh {
   background-size: 40px 40px;
   background-image: 
