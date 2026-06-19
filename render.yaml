@@ -11,9 +11,8 @@ services:
         fromDatabase:
           name: lexguard-db
           property: connectionString
-      # Fix: Added a placeholder value and set sync to false
+      # Fix: Kept sync: false but removed the 'value' line entirely
       - key: GEMINI_API_KEY
-        value: "set-this-in-render-dashboard"
         sync: false
       - key: UPLOAD_DIR
         value: /workspace/uploads
