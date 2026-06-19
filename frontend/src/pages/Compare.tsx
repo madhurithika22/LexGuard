@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useContractStore, ComparisonResult } from "../store/contractStore";
+import { useContractStore, type ComparisonResult } from "../store/contractStore";
 import { 
   Columns, 
   FileText, 
