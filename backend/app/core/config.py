@@ -2,6 +2,14 @@ import os
 from pydantic_settings import BaseSettings
 from typing import List
 
+# Intercept and fix the Render database URL before loading settings
+raw_db_url = os.getenv(
+    "DATABASE_URL", 
+    "sqlite:///C:/Users/Ln/.gemini/antigravity/scratch/lexguard-ai/backend/lexguard.db"
+)
+if raw_db_url.startswith("postgres://"):
+    raw_db_url = raw_db_url.replace("postgres://", "postgresql://", 1)
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "LexGuard AI"
     API_V1_STR: str = "/api"
@@ -12,11 +20,7 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
     
     # Database Settings
-    # Supports PostgreSQL, falls back to SQLite
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", 
-        "sqlite:///C:/Users/Ln/.gemini/antigravity/scratch/lexguard-ai/backend/lexguard.db"
-    )
+    DATABASE_URL: str = raw_db_url
     
     # AI Layer Settings
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
@@ -24,7 +28,7 @@ class Settings(BaseSettings):
     # File Storage Settings
     UPLOAD_DIR: str = os.getenv(
         "UPLOAD_DIR", 
-        "C:/Users/Ln/.gemini/antigravity/scratch/lexguard-ai/backend/uploads"
+        "/workspace/uploads"  # Switched to Render-friendly path
     )
     
     # CORS Origins
